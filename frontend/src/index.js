@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './index.css';
+//---- For original bootstrap styles uncomment this line below ---///
+// import 'bootstrap/dist/css/bootstrap.min.css' 
+
+//---- For original bootstrap styles comment the 2 next lines below ---///
+import './assets/styles/bootstrap.custom.css'
+import './assets/styles/index.css'
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

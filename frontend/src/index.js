@@ -1,5 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+
+} from 'react-router-dom'
 //---- For original bootstrap styles uncomment this line below ---///
 // import 'bootstrap/dist/css/bootstrap.min.css' 
 
@@ -9,11 +16,30 @@ import './assets/styles/index.css'
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HomeScreen from './screens/HomeScreen';
+
+
+//------------React-router-dom-------------------------------------------/// 
+const router = createBrowserRouter(
+createRoutesFromElements(
+  <Route path = "/" element = {<App/>} >
+    <Route index = { true} path='/' element={<HomeScreen/>} />
+
+  </Route>
+)
+
+)
+
+
+//------------React-router-dom end-------------------------------------------/// 
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> // Before React-router-dom*/ } 
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 

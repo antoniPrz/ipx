@@ -1,6 +1,7 @@
-import React from "react";
+import {useEffect, useState} from "react";
 import { useParams, Link } from "react-router-dom";
-import products from "../products";
+import productsLocal from "../products";
+import axios from 'axios'
 import {
   Card,
   Row,
@@ -14,7 +15,23 @@ import Rating from "../components/Rating";
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
-  const product = products.find((p) => p._id === productId);
+  const [product, setProduct] = useState({})
+
+  useEffect(()=>{
+   const fetchProduct = async ()=>{
+    const {data} = await axios.get(`/api/products/${productId}`);
+    console.log(data)
+    setProduct(data);
+
+   }
+
+
+    fetchProduct();
+
+
+  },[productId])
+
+  // const product = products.find((p) => p._id === productId);
 
   console.log(product);
   return (
